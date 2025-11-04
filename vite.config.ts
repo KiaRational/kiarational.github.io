@@ -6,7 +6,6 @@
 
   export default defineConfig({
     plugins: [react()],
-  base: './', // if this is your user site (kiarational.github.io)
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
