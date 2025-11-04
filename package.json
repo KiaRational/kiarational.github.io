@@ -1,6 +1,7 @@
 {
       "name": "3D Academic Portfolio Landing Page",
       "version": "0.1.0",
+      "homepage": "https://kiarational.github.io",
       "private": true,
       "dependencies": {
             "@radix-ui/react-accordion": "^1.2.3",
@@ -52,10 +53,12 @@
             "gh-pages": "^6.3.0",
             "vite": "6.3.5"
       },
-      "scripts": {
-            "dev": "vite",
-            "build": "vite build",
-            "preview": "vite preview",
-            "deploy": "gh-pages -d dist"
-      }
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "deploy": "gh-pages -d dist"
+}
 }
