@@ -15,30 +15,33 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-30 px-8 py-6 bg-transparent">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto">
-        <button
-          onClick={() => setActiveSection('home')}
-          className="text-white/90 tracking-wide hover:text-white transition-colors"
-        >
-          Kiarash Ghasemzadeh
-        </button>
-        <ul className="flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => setActiveSection(link.id)}
-                className={`transition-colors duration-200 ${
-                  activeSection === link.id
-                    ? 'text-white'
-                    : 'text-white/80 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+    <header className="fixed top-0 left-0 right-0 z-30 backdrop-blur-md bg-white/80 border-b border-gray-200/50 shadow-sm">
+      <nav className="max-w-7xl mx-auto px-8 py-4">
+        <div className="flex items-center justify-between">
+          <button
+            onClick={() => setActiveSection('home')}
+            className="text-gray-900 transition-colors hover:text-gray-700"
+          >
+            Kiarash Ghasemzadeh
+          </button>
+          
+          <ul className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <button
+                  onClick={() => setActiveSection(link.id)}
+                  className={`transition-colors duration-200 ${
+                    activeSection === link.id
+                      ? 'text-gray-900'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   );

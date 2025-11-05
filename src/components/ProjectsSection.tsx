@@ -24,7 +24,7 @@ export function ProjectsSection() {
       title: "1/10 Scale Self-Driving Car Robot",
       description: "Developed and integrated deep learning models for traffic object detection and lane detection, enabling autonomous navigation.",
       technologies: ["Deep Learning", "Computer Vision", "Autonomous Navigation"],
-      image: "https://kiarational.github.io/images/project-thumbnail-1.jpg",
+      image: "https://raw.githubusercontent.com/KiaRational/kiarational.github.io/refs/heads/main/images/project-thumbnail-1.jpg",
       links: {
         demo: "https://www.youtube.com/embed/MvSlxgno_cs",
         demo2: "https://www.youtube.com/embed/YPSrwwHQcPE",
@@ -35,7 +35,7 @@ export function ProjectsSection() {
       title: "Mobile Manipulator Robot",
       description: "Implemented deep learning models for real-time object detection and pose estimation using an Intel RealSense camera. Implemented SLAM and Motion Planning Algorithms.",
       technologies: ["Deep Learning", "SLAM", "Motion Planning", "RealSense"],
-      image: "https://kiarational.github.io/images/project-thumbnail-2.png",
+      image: "https://raw.githubusercontent.com/KiaRational/kiarational.github.io/refs/heads/main/images/project-thumbnail-2.png",
       links: {
         demo: "https://www.youtube.com/embed/xdION63-8_o",
       },
@@ -45,7 +45,7 @@ export function ProjectsSection() {
       title: "Tiago Mobile Manipulator for Home Service with ROS",
       description: "Worked on mobile manipulation with Tiago Robot with ROS and Gazebo simulator, focusing on object recognition, manipulation, and navigation in dynamic environments.",
       technologies: ["ROS", "Gazebo", "Mobile Manipulation"],
-      image: "https://kiarational.github.io/images/project-thumbnail-3.png",
+      image: "https://raw.githubusercontent.com/KiaRational/kiarational.github.io/refs/heads/main/images/project-thumbnail-3.png",
       links: {
         github: "https://github.com/KiaRational/Tiago_Object_Manipulation_ROS",
         video: "https://github.com/KiaRational/Tiago_Object_Manipulation_ROS/raw/refs/heads/main/Readme/Video_5xfasten.mp4",
@@ -56,7 +56,7 @@ export function ProjectsSection() {
       title: "Visual Odometry for SLAM",
       description: "Developed a visual odometry algorithm for autonomous vehicles on the KITTI dataset, using stereo cameras for accurate position estimation in 3D space.",
       technologies: ["Computer Vision", "SLAM", "KITTI Dataset"],
-      image: "https://kiarational.github.io/images/project-thumbnail-4.jpg",
+      image: "https://raw.githubusercontent.com/KiaRational/kiarational.github.io/refs/heads/main/images/project-thumbnail-4.jpg",
       links: {
         github: "https://github.com/KiaRational/VisualOdometry",
       },
@@ -66,7 +66,7 @@ export function ProjectsSection() {
       title: "GUI-Based Camera Calibration Toolbox",
       description: "Designed a GUI tool for camera calibration, supporting multiple camera models, and providing an intuitive interface for accurate intrinsic and extrinsic parameter estimation.",
       technologies: ["Computer Vision", "GUI", "Camera Calibration"],
-      image: "https://kiarational.github.io/images/project-thumbnail-5.jpg",
+      image: "https://raw.githubusercontent.com/KiaRational/kiarational.github.io/refs/heads/main/images/project-thumbnail-5.jpg",
       links: {
         github: "https://github.com/KiaRational/CalibrationHub",
       },
