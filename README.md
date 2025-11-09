@@ -1,8 +1,6 @@
 
   # 3D Academic Portfolio Landing Page
 
-  This is a code bundle for 3D Academic Portfolio Landing Page. The original project is available at https://www.figma.com/design/rol3JutUtVLmtI3jrVHL1v/3D-Academic-Portfolio-Landing-Page.
-
   ## Running the code
 
   Run `npm i` to install the dependencies.
