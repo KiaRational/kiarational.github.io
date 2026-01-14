@@ -1,74 +1,59 @@
-import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import React, { memo } from 'react';
+import { Brain } from 'lucide-react';
 
-export function ResearchSection() {
+export const ResearchSection = memo(function ResearchSection() {
   const researchAreas = [
     {
-      title: "Autonomous Robotics",
-      description: "Developing intelligent systems that can operate independently in complex, dynamic environments. Focus on navigation, path planning, and decision-making algorithms.",
+      title: "Embodied & Autonomous Robotics",
+      description: "Learning-based navigation, manipulation, and decision-making for embodied agents operating in dynamic and uncertain environments.",
       icon: "🤖",
     },
     {
-      title: "Machine Learning for Robotics",
-      description: "Applying deep learning and reinforcement learning techniques to enable robots to learn from experience and adapt to new situations.",
+      title: "Deep Reinforcement Learning & Neurosymbolic AI",
+      description: "Developing deep RL methods for robotic control while incorporating symbolic reasoning and structured constraints to improve generalization, safety, and sample efficiency.",
       icon: "🧠",
     },
     {
-      title: "Computer Vision",
-      description: "Creating robust perception systems using cameras and depth sensors. Applications include object detection, tracking, and 3D reconstruction.",
+      title: "Computer Vision for Robotics",
+      description: "Visual perception and 3D computer vision for robotics, including representation learning, object-centric perception, and scene understanding to support planning and control.",
       icon: "👁️",
     },
     {
-      title: "Multi-Agent Systems",
-      description: "Coordinating teams of robots to accomplish complex tasks through distributed planning and communication protocols.",
+      title: "Multi-Agent Robot Learning",
+      description: "Coordination and learning in multi-robot systems using decentralized and collaborative reinforcement learning.",
       icon: "🔗",
     },
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-8 border border-white/50 shadow-xl">
-        <h1 className="text-gray-900 mb-4">Research</h1>
-        <p className="text-gray-700 leading-relaxed">
-          My research focuses on developing intelligent autonomous systems that can perceive, 
-          reason, and act in complex real-world environments. I combine techniques from robotics, 
-          machine learning, and computer vision to create robots that are more capable, reliable, 
-          and adaptable.
-        </p>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-2">
+        <Brain className="w-8 h-8 text-blue-600" />
+        <h2 className="text-gray-900">Research</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Research Overview */}
+      <p className="text-gray-700 leading-relaxed">
+        My research focuses on learning-based and embodied robotic systems that can perceive, reason, and act in complex real-world environments. I integrate deep reinforcement learning, neurosymbolic AI, and computer vision to develop autonomous robots that are robust, adaptable, and capable of generalization beyond training settings.
+      </p>
+
+      {/* Research Areas */}
+      <div className="space-y-4">
         {researchAreas.map((area, index) => (
-          <Card key={index} className="backdrop-blur-md bg-white/90 border-white/50 hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-3xl">{area.icon}</span>
-                <CardTitle className="text-gray-900">
-                  {area.title}
-                </CardTitle>
-              </div>
-              <CardDescription className="text-gray-700">
+          <div key={index} className="flex items-start gap-3">
+            <span className="text-2xl flex-shrink-0 mt-1">{area.icon}</span>
+            <div>
+              <h3 className="text-gray-900 mb-1">
+                {area.title}
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-sm">
                 {area.description}
-              </CardDescription>
-            </CardHeader>
-          </Card>
+              </p>
+            </div>
+          </div>
         ))}
-      </div>
-
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-8 border border-white/50">
-        <h2 className="text-gray-900 mb-4">Current Focus</h2>
-        <div className="space-y-4 text-gray-700">
-          <p>
-            Currently, I am working on advancing the state-of-the-art in autonomous navigation 
-            for mobile robots, with particular emphasis on learning-based approaches that can 
-            handle uncertainty and generalize to new environments.
-          </p>
-          <p>
-            I am also exploring the intersection of robotics and foundation models, investigating 
-            how large-scale pre-training can be leveraged to improve robot perception and control.
-          </p>
-        </div>
       </div>
     </div>
   );
-}
+});

@@ -30,49 +30,51 @@ export function PublicationsSection() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-8 border border-white/50 shadow-xl">
-        <h1 className="text-gray-900 mb-4">Publications</h1>
-        <p className="text-gray-700">
+    <div className="space-y-6 md:space-y-8">
+      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-5 md:p-8 border border-white/50 shadow-xl">
+        <h1 className="text-gray-900 mb-3 md:mb-4">Publications</h1>
+        <p className="text-gray-700 text-sm md:text-base">
           Research publications in robotics, artificial intelligence, and autonomous systems.
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {publications.map((pub, index) => (
           <Card key={index} className="backdrop-blur-md bg-white/90 border-white/50 hover:shadow-lg transition-shadow">
-            <CardHeader>
+            <CardHeader className="p-4 md:p-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <CardTitle className="text-gray-900 mb-2">
+                  <CardTitle className="text-gray-900 mb-2 text-base md:text-lg">
                     {pub.title}
                   </CardTitle>
-                  <CardDescription className="text-gray-700">
+                  <CardDescription className="text-gray-700 text-xs md:text-sm">
                     {pub.authors}
                   </CardDescription>
-                  <p className="text-gray-600 mt-1">
+                  <p className="text-gray-600 mt-1 text-xs md:text-sm">
                     {pub.venue}, {pub.year}
                   </p>
                 </div>
               </div>
             </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-3 items-center">
+            <CardContent className="p-4 md:p-6 pt-0">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 items-start sm:items-center">
                 {pub.tags && (
                   <div className="flex flex-wrap gap-2">
                     {pub.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-blue-100 text-blue-700">
+                      <Badge key={tag} variant="secondary" className="bg-blue-100 text-blue-700 text-xs">
                         {tag}
                       </Badge>
                     ))}
                   </div>
                 )}
                 {pub.links && (
-                  <div className="flex gap-3 ml-auto">
+                  <div className="flex gap-3 sm:ml-auto">
                     {pub.links.paper && (
                       <a
                         href={pub.links.paper}
-                        className="text-blue-600 hover:text-blue-800 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 transition-colors text-sm"
                       >
                         Paper
                       </a>
@@ -80,7 +82,9 @@ export function PublicationsSection() {
                     {pub.links.code && (
                       <a
                         href={pub.links.code}
-                        className="text-green-600 hover:text-green-800 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 hover:text-green-800 transition-colors text-sm"
                       >
                         Code
                       </a>
@@ -88,7 +92,9 @@ export function PublicationsSection() {
                     {pub.links.video && (
                       <a
                         href={pub.links.video}
-                        className="text-red-600 hover:text-red-800 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-red-600 hover:text-red-800 transition-colors text-sm"
                       >
                         Video
                       </a>
@@ -99,21 +105,6 @@ export function PublicationsSection() {
             </CardContent>
           </Card>
         ))}
-      </div>
-
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-6 border border-white/50">
-        <p className="text-gray-600 text-center">
-          For a complete list of publications, visit{' '}
-          <a
-            href="https://kiarational.github.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800"
-          >
-            my academic website
-          </a>
-          .
-        </p>
       </div>
     </div>
   );

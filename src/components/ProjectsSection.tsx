@@ -75,18 +75,18 @@ export function ProjectsSection() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-8 border border-white/50 shadow-xl">
-        <h1 className="text-gray-900 mb-4">Projects</h1>
-        <p className="text-gray-700">
+    <div className="space-y-6 md:space-y-8">
+      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-5 md:p-8 border border-white/50 shadow-xl">
+        <h1 className="text-gray-900 mb-3 md:mb-4">Projects</h1>
+        <p className="text-gray-700 text-sm md:text-base">
           Research and development projects in robotics, autonomous systems, and AI.
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {projects.map((project, index) => (
           <Card key={index} className="backdrop-blur-md bg-white/90 border-white/50 hover:shadow-lg transition-shadow overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {/* Project Image */}
               <div className="md:col-span-1">
                 <ImageWithFallback
@@ -98,9 +98,9 @@ export function ProjectsSection() {
 
               {/* Project Details */}
               <div className="md:col-span-2">
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-4">
-                    <CardTitle className="text-gray-900">
+                <CardHeader className="p-4 md:p-6">
+                  <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-4">
+                    <CardTitle className="text-gray-900 text-base md:text-lg">
                       {project.title}
                     </CardTitle>
                     {project.status && (
@@ -116,15 +116,15 @@ export function ProjectsSection() {
                       </Badge>
                     )}
                   </div>
-                  <CardDescription className="text-gray-700 mt-2">
+                  <CardDescription className="text-gray-700 mt-2 text-sm md:text-base">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4 md:p-6 pt-0">
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="border-blue-300 text-blue-700">
+                        <Badge key={tech} variant="outline" className="border-blue-300 text-blue-700 text-xs md:text-sm">
                           {tech}
                         </Badge>
                       ))}
@@ -137,12 +137,12 @@ export function ProjectsSection() {
                           <div className="rounded-lg overflow-hidden">
                             <iframe
                               width="100%"
-                              height="280"
+                              height="200"
                               src={project.links.demo}
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
-                              className="rounded-lg"
+                              className="rounded-lg md:h-[280px]"
                             />
                           </div>
                         )}
@@ -150,12 +150,12 @@ export function ProjectsSection() {
                           <div className="rounded-lg overflow-hidden">
                             <iframe
                               width="100%"
-                              height="280"
+                              height="200"
                               src={project.links.demo2}
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
-                              className="rounded-lg"
+                              className="rounded-lg md:h-[280px]"
                             />
                           </div>
                         )}
@@ -163,9 +163,8 @@ export function ProjectsSection() {
                           <div className="rounded-lg overflow-hidden">
                             <video
                               width="100%"
-                              height="280"
                               controls
-                              className="rounded-lg"
+                              className="rounded-lg h-[200px] md:h-[280px]"
                             >
                               <source src={project.links.video} type="video/mp4" />
                               Your browser does not support the video tag.
@@ -182,7 +181,7 @@ export function ProjectsSection() {
                             href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-gray-900 transition-colors"
+                            className="text-gray-600 hover:text-gray-900 transition-colors text-sm md:text-base"
                           >
                             GitHub →
                           </a>
@@ -192,7 +191,7 @@ export function ProjectsSection() {
                             href={project.links.paper}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-green-600 hover:text-green-800 transition-colors"
+                            className="text-green-600 hover:text-green-800 transition-colors text-sm md:text-base"
                           >
                             Paper →
                           </a>
@@ -207,8 +206,8 @@ export function ProjectsSection() {
         ))}
       </div>
 
-      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-6 border border-white/50">
-        <p className="text-gray-600 text-center">
+      <div className="backdrop-blur-md bg-white/90 rounded-2xl p-4 md:p-6 border border-white/50">
+        <p className="text-gray-600 text-center text-sm md:text-base">
           Explore more projects on{' '}
           <a
             href="https://github.com/kiarational"

@@ -7,16 +7,43 @@ interface LoadingScreenProps {
 
 export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
+  const [isSplineReady, setIsSplineReady] = useState(false);
 
   useEffect(() => {
+    // Preload Spline viewer script
+    const loadSplineScript = () => {
+      if (document.querySelector('script[src*="@splinetool/viewer"]')) {
+        setIsSplineReady(true);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://unpkg.com/@splinetool/viewer@latest/build/spline-viewer.js';
+      script.async = true;
+      script.onload = () => {
+        // Give the viewer a moment to initialize
+        setTimeout(() => setIsSplineReady(true), 500);
+      };
+      script.onerror = () => {
+        // If script fails to load, continue anyway
+        setIsSplineReady(true);
+      };
+      document.head.appendChild(script);
+      
+      // Mark as loaded globally
+      if (typeof window !== 'undefined') {
+        (window as any).splineViewerLoaded = true;
+      }
+    };
+
+    loadSplineScript();
+
     // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => {
-            onLoadingComplete();
-          }, 500);
           return 100;
         }
         // Accelerate progress as it gets closer to 100
@@ -26,7 +53,16 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
     }, 50);
 
     return () => clearInterval(interval);
-  }, [onLoadingComplete]);
+  }, []);
+
+  // Wait for both progress to reach 100 and Spline to be ready
+  useEffect(() => {
+    if (progress === 100 && isSplineReady) {
+      setTimeout(() => {
+        onLoadingComplete();
+      }, 500);
+    }
+  }, [progress, isSplineReady, onLoadingComplete]);
 
   return (
     <motion.div

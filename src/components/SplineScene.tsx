@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 
 // Declare the custom element type for TypeScript
 declare global {
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-export function SplineScene() {
+export const SplineScene = memo(function SplineScene() {
   useEffect(() => {
     // Check if custom element is already defined
     if (customElements.get('spline-viewer')) {
@@ -28,7 +28,7 @@ export function SplineScene() {
     }
 
     // Check if the script is already in the DOM
-    if (document.querySelector('script[src*="@splinetool/viewer"]')) {
+    if (document.querySelector('script[src*=\"@splinetool/viewer\"]')) {
       return;
     }
 
@@ -52,4 +52,4 @@ export function SplineScene() {
       />
     </div>
   );
-}
+});
