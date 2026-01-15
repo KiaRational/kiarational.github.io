@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense, useCallback } from 'react';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Header } from './components/Header';
 import { SplineScene } from './components/SplineScene';
 import { BioPanel } from './components/BioPanel';
@@ -7,6 +7,7 @@ import { ResearchSection } from './components/ResearchSection';
 import { EducationSection } from './components/EducationSection';
 import { ContactSection } from './components/ContactSection';
 import { LoadingScreen } from './components/LoadingScreen';
+import { ChevronDown } from 'lucide-react';
 
 // Lazy load heavy components
 const PublicationsSection = lazy(() => import('./components/PublicationsSection').then(module => ({ default: module.PublicationsSection })));
@@ -81,53 +82,82 @@ export default function App() {
             <div className="relative z-10 h-full">
               <BioPanel />
             </div>
+            
+            {/* Scroll Indicator */}
+            <motion.div
+              className="absolute bottom-8 md:bottom-12 right-4 md:right-12 z-20 flex flex-col items-center gap-2"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <p className="text-gray-700 text-sm font-medium backdrop-blur-sm bg-white/70 px-3 py-1 rounded-full">
+                Scroll to explore
+              </p>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="backdrop-blur-md bg-white/80 rounded-full p-2 shadow-lg border border-white/50"
+              >
+                <ChevronDown className="w-6 h-6 text-gray-700" />
+              </motion.div>
+            </motion.div>
           </section>
 
           {/* Education Section */}
-          <section id="education" className="relative z-10 min-h-screen py-16 md:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-end">
-              <div className="w-full md:w-[600px] backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-6 md:p-8 border border-white/50">
-                <EducationSection />
+          <section id="education" className="relative z-10 py-12 md:py-16">
+            <div className="max-w-7xl md:ml-auto px-4 md:pr-8">
+              <div className="md:ml-auto w-full md:w-[500px]">
+                <div className="backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-5 md:p-6 border border-white/50">
+                  <EducationSection />
+                </div>
               </div>
             </div>
           </section>
 
           {/* Research Section */}
-          <section id="research" className="relative z-10 min-h-screen py-16 md:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-end">
-              <div className="w-full md:w-[600px] backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-6 md:p-8 border border-white/50">
-                <ResearchSection />
+          <section id="research" className="relative z-10 py-12 md:py-16">
+            <div className="max-w-7xl md:ml-auto px-4 md:pr-8">
+              <div className="md:ml-auto w-full md:w-[500px]">
+                <div className="backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-5 md:p-6 border border-white/50">
+                  <ResearchSection />
+                </div>
               </div>
             </div>
           </section>
 
           {/* Publications Section */}
-          <section id="publications" className="relative z-10 min-h-screen py-16 md:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-end">
-              <div className="w-full md:w-[600px] backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-6 md:p-8 border border-white/50">
-                <Suspense fallback={<SectionLoader />}>
-                  <PublicationsSection />
-                </Suspense>
+          <section id="publications" className="relative z-10 py-12 md:py-16">
+            <div className="max-w-7xl md:ml-auto px-4 md:pr-8">
+              <div className="md:ml-auto w-full md:w-[500px]">
+                <div className="backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-5 md:p-6 border border-white/50">
+                  <Suspense fallback={<SectionLoader />}>
+                    <PublicationsSection />
+                  </Suspense>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="relative z-10 min-h-screen py-16 md:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-end">
-              <div className="w-full md:w-[600px] backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-6 md:p-8 border border-white/50">
-                <Suspense fallback={<SectionLoader />}>
-                  <ProjectsSection />
-                </Suspense>
+          <section id="projects" className="relative z-10 py-12 md:py-16">
+            <div className="max-w-7xl md:ml-auto px-4 md:pr-8">
+              <div className="md:ml-auto w-full md:w-[500px]">
+                <div className="backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-5 md:p-6 border border-white/50">
+                  <Suspense fallback={<SectionLoader />}>
+                    <ProjectsSection />
+                  </Suspense>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="relative z-10 min-h-screen py-16 md:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-end">
-              <div className="w-full md:w-[600px] backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-6 md:p-8 border border-white/50">
-                <ContactSection />
+          <section id="contact" className="relative z-10 py-12 md:py-16 mb-12">
+            <div className="max-w-7xl md:ml-auto px-4 md:pr-8">
+              <div className="md:ml-auto w-full md:w-[500px]">
+                <div className="backdrop-blur-md bg-white/85 rounded-2xl shadow-2xl p-5 md:p-6 border border-white/50">
+                  <ContactSection />
+                </div>
               </div>
             </div>
           </section>
